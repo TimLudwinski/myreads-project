@@ -2,7 +2,6 @@ import React from 'react'
 
 import Book from './book'
 
-//
 function Bookshelf (props) {
   return (
     <div className="bookshelf">
@@ -10,7 +9,7 @@ function Bookshelf (props) {
       <div className="bookshelf-books">
         <ol className="books-grid">
         {props.books.map((book) => ( 
-          <Book title={book.title} author={book.authors.join(", ")} image={`url(${book.imageLinks.thumbnail})`} shelf={book.shelf}/>
+          <Book book={book} onChangeBookshelf={props.onChangeBookshelf}/>
         ))}
         </ol>
       </div>
