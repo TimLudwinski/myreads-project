@@ -1,8 +1,9 @@
 import React from 'react'
-
 import { Link } from 'react-router-dom'
 
-function Search () {
+import Bookshelf from './bookshelf'
+
+function Search(props) {
   return (
     <div className="search-books">
       <div className="search-books-bar">
@@ -16,11 +17,11 @@ function Search () {
             However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
             you don't find a specific author or title. Every search is limited by search terms.
           */}
-          <input type="text" placeholder="Search by title or author"/>
+          <input type="text" placeholder="Search by title or author" onChange={(event) => props.onChangeSearchTerms(event.target.value)}/>
         </div>
       </div>
       <div className="search-books-results">
-        <ol className="books-grid"></ol>
+        <Bookshelf title="Search Results" books={props.searchResults} onChangeBookshelf={props.onChangeBookshelf} />
       </div>
     </div>
   )
